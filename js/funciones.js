@@ -16,11 +16,11 @@ function contienePalabra(noticia, palabra) {
   if (texto.indexOf(palabra) >= 0){
     return true;
   }
-
 }
 
+// Le agregue puntos suspensivos
 function recortarTexto(noticia, cantidadPalabras){
-  noticia.querySelector("p").innerText = noticia.querySelector("p").innerText.split(' ').slice(0, cantidadPalabras).join(' ');
+  noticia.querySelector("p").innerText = noticia.querySelector("p").innerText.split(' ').slice(0, cantidadPalabras).join(' ') + '...';
 }
 
 
