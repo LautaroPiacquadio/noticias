@@ -1,31 +1,28 @@
 var noticias = obtenerNoticias();
 
-// Busco las noticias que contengan la palabra y las oculto
-function ocultarNoticiasQueContengan(palabra) {
-    for (let i = 0; i < noticias.length; i++) {
-        if (contienePalabra(noticias[i], palabra)) {
-            ocultarNoticia(noticias[i]);
-        }
+// Si contiene la palabra la oculto
+function ocultarNoticiasQueContengan(i, palabra) {
+    if (contienePalabra(noticias[i], palabra)) {
+        ocultarNoticia(noticias[i]);
     }
 }
 
-// Busco las noticias que contengan la palabra y les asigno el color de fondo
-function resaltarNoticiasQueContengan(palabra, color) {
-    for (let i = 0; i < noticias.length; i++) {
-        if (contienePalabra(noticias[i], palabra)) {
-            cambiarColor(noticias[i], color);
-        }
+// Si contiene la palabra le asigno el color de fondo
+function resaltarNoticiasQueContengan(i, palabra, color) {
+    if (contienePalabra(noticias[i], palabra)) {
+        cambiarColor(noticias[i], color);
     }
 }
 
-// A cada noticia le recorto el texto y le agrego puntos suspensivos dentro de recortarTexto
-function recortarNoticias(cantPalabras){
-    for (let i = 0; i < noticias.length; i++) {
-        recortarTexto(noticias[i], cantPalabras)
-    }
+// Recorto la noticia a la cantidad de palabras que defino y le agrego puntos suspensivos dentro de recortarTexto (funciones.js)
+function recortarNoticias(i, cantPalabras){
+    recortarTexto(noticias[i], cantPalabras);
 }
 
-ocultarNoticiasQueContengan('Google', );
-resaltarNoticiasQueContengan('ARGENTINA', 'rgb(48, 155, 184)');
-resaltarNoticiasQueContengan('robots', 'rgb(244, 191, 55)');
-recortarNoticias(20);
+// Itero una vez las noticias y ejecuto todas las funciones por cada noticia
+for (var i = 0; i < noticias.length; i++) {
+    ocultarNoticiasQueContengan(i, 'Google');
+    resaltarNoticiasQueContengan(i, 'ARGENTINA', 'rgb(48, 155, 184)');
+    resaltarNoticiasQueContengan(i, 'robots', 'rgb(244, 191, 55)');
+    recortarNoticias(i, 20);
+}
